@@ -16,6 +16,7 @@ import {
 	PrerenderOption,
 	RequestOptions,
 	RouteSegment,
+	DeepPartial,
 	IsAny
 } from '../types/private.js';
 import { BuildData, SSRNodeLoader, SSRRoute, ValidatedConfig } from 'types';
@@ -1910,9 +1911,9 @@ type InputElementProps<T extends keyof InputTypeMap> = T extends 'checkbox' | 'r
 
 type RemoteFormFieldMethods<T> = {
 	/** The values that will be submitted */
-	value(): T;
+	value(): DeepPartial<T>;
 	/** Set the values that will be submitted */
-	set(input: T): T;
+	set(input: DeepPartial<T>): DeepPartial<T>;
 	/** Validation issues, if any */
 	issues(): RemoteFormIssue[] | undefined;
 };
